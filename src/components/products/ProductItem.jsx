@@ -18,7 +18,7 @@ const ProductItem = ({product = {}}) => {
             </figure>
             <div className="card-body items-center text-center">
                 <h2 className="card-title">{product.name || "Product Name"}</h2>
-                <h3 className="font-bold text-xl text-red-700 mt-1">৳ {product.price || "0.00"}</h3>
+                <h3 className="font-bold text-xl text-green-300 mt-1">৳ {product.price || "0.00"}</h3>
                 <p>{product.description || "No description available"}</p>
                 <div className="card-actions">
                 <button className="btn bg-yellow-700 text-gray-50">Book Now</button>

@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
 import apiClient from '../../services/api-client';
-import ErrorAlert from '../../components/ErrorAlert';
+import ErrorAlert from '../Common/ErrorAlert';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import ProductItem from './ProductItem';
+import Spinning from '../Common/Spinning';
+
 const Product = () => {
 
     const [products, setProducts] = useState([]);
@@ -27,7 +29,7 @@ const Product = () => {
     }, []);
 
     return (
-<section className="bg-amber-50">
+<section className="bg-amber-50 py-3">
   <div className="max-w-7xl mx-auto px-2 sm:px-4">
     <div className="flex justify-between items-center mb-4">
       <h2 className="text-2xl sm:text-3xl font-bold text-gray-800">Trending Now</h2>
@@ -40,11 +42,7 @@ const Product = () => {
     </div>
 
     {/* Loading State - Compact */}
-    {isLoading && (
-      <div className="flex justify-center py-10">
-      <div className="text-6xl font-extrabold text-purple-600 animate-[spin_2s_linear_infinite]">N</div>
-    </div>
-    )}
+    {isLoading && (<Spinning />)}
 
     {error && <ErrorAlert error={error} />}
 
